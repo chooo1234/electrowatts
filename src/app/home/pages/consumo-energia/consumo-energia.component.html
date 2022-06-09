@@ -1,0 +1,216 @@
+<div class="card-columns">
+    <div class="row">
+        <!-- spinner -->
+        <div class="col-sm-12 text-center" *ngIf="spinner">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- primera formula -->
+        
+        <!-- segundo formulario -->
+        <div class="card border-primary ml-2 col-sm-4">
+            <div class="card-header text-center">{{datosCliente.focoConector[0].nombreCuarto}}</div>
+            <div class="card-body text-primary">
+                <form (ngSubmit)="guardarCuartoDos()" [formGroup]="formularioConsumoCuartoDos">
+                    <div class="text-center">
+                        <fa-icon *ngIf="datosCliente.focoConector[0].switch" style="color: green; font-size: 80px;" [icon]="plugCircleCheck">
+                        </fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[0].switch" style="color: red; font-size: 80px;" [icon]="plugCircleXmark ">
+                        </fa-icon>
+                        <fa-icon *ngIf="datosCliente.focoConector[0].switch" style="color: rgb(229, 195, 133) ; font-size: 80px;"
+                            [icon]="lighbulb"></fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[0].switch" style="color: gray ;font-size: 80px;"
+                            [icon]="lighbulb">Apagado</fa-icon>
+                    </div>
+                    <!-- Switches concector -->
+                    <p class="text-center">Conector y foco</p>
+                    <!-- watts que se esta consumiendo -->
+                    <p class="text-center">Watts</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow; ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[0].volts}}
+                    </p>
+                    <p class="text-center">Watts consumido:</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[0].voltsAcumulados}}
+                    </p>
+                    <div class="row mb-3">
+                        <!-- <label class="col-sm-3 col-form-label">off/on foco</label> -->
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input" type="checkbox" formControlName="switchCuartoDos">
+                                <!-- cuando esta en ture el switch resalta este template condiciones-->
+                                <label style="font-size: 15px;"
+                                    *ngIf="!formularioConsumoCuartoDos.value.switchCuartoDos"
+                                    class="form-check-label text-danger" for="switchConector">Se desconectará de la
+                                    corriente electrica y se apagará el foco al momento de guardar
+                                </label>
+                                <label style="font-size: 15px;" *ngIf="formularioConsumoCuartoDos.value.switchCuartoDos"
+                                    class="form-check-label text-success" for="switchConector">Se conectará a la
+                                    corriente
+                                    electrica y se encendera el foco al momento de guardar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- Boton submit -->
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary float-end">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!-- tercer formulario -->
+        <div class="card border-primary ml-2 col-sm-4">
+            <div class="card-header text-center">{{datosCliente.focoConector[1].nombreCuarto}}</div>
+            <div class="card-body text-primary">
+                <form (ngSubmit)="guardarCuartoTres()" [formGroup]="formularioConsumoCuartoTres">
+                    <div class="text-center">
+                        <fa-icon *ngIf="datosCliente.focoConector[1].switch" style="color: green; font-size: 80px;" [icon]="plugCircleCheck">
+                        </fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[1].switch" style="color: red; font-size: 80px;" [icon]="plugCircleXmark ">
+                        </fa-icon>
+                        <fa-icon *ngIf="datosCliente.focoConector[1].switch" style="color: rgb(229, 195, 133) ; font-size: 80px;"
+                            [icon]="lighbulb"></fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[1].switch" style="color: gray ;font-size: 80px;"
+                            [icon]="lighbulb">Apagado</fa-icon>
+                    </div>
+                    <!-- Switches concector -->
+                    <p class="text-center">Conector y foco</p>
+                    <!-- watts que se esta consumiendo -->
+                    <p class="text-center">Watts</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow; ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[1].volts}}
+                    </p>
+                    <p class="text-center">Watts consumido:</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[1].voltsAcumulados}}
+                    </p>
+                    <div class="row mb-3">
+                        <!-- <label class="col-sm-3 col-form-label">off/on foco</label> -->
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input" type="checkbox" formControlName="switchCuartoTres">
+                                <!-- cuando esta en ture el switch resalta este template condiciones-->
+                                <label style="font-size: 15px;"
+                                    *ngIf="!formularioConsumoCuartoTres.value.switchCuartoTres"
+                                    class="form-check-label text-danger" for="switchConector">Se desconectará de la
+                                    corriente electrica y se apagará el foco al momento de guardar
+                                </label>
+                                <label style="font-size: 15px;" *ngIf="formularioConsumoCuartoTres.value.switchCuartoTres"
+                                    class="form-check-label text-success" for="switchConector">Se conectará a la
+                                    corriente
+                                    electrica y se encendera el foco al momento de guardar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- Boton submit -->
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary float-end">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!-- Cuarto formulario -->
+        <div class="card border-primary ml-2 col-sm-4">
+            <div class="card-header text-center">{{datosCliente.focoConector[2].nombreCuarto}}</div>
+            <div class="card-body text-primary">
+                <form (ngSubmit)="guardarCuartoCuatro()" [formGroup]="formularioConsumoCuartoCuatro">
+                    <div class="text-center">
+                        <fa-icon *ngIf="datosCliente.focoConector[2].switch" style="color: green; font-size: 80px;" [icon]="plugCircleCheck">
+                        </fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[2].switch" style="color: red; font-size: 80px;" [icon]="plugCircleXmark ">
+                        </fa-icon>
+                        <fa-icon *ngIf="datosCliente.focoConector[2].switch" style="color: rgb(229, 195, 133) ; font-size: 80px;"
+                            [icon]="lighbulb"></fa-icon>
+                        <fa-icon *ngIf="!datosCliente.focoConector[2].switch" style="color: gray ;font-size: 80px;"
+                            [icon]="lighbulb">Apagado</fa-icon>
+                    </div>
+                    <!-- Switches concector -->
+                    <p class="text-center">Conector y foco</p>
+                    <!-- watts que se esta consumiendo -->
+                    <p class="text-center">Watts</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow; ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[2].volts}}
+                    </p>
+                    <p class="text-center">Watts consumido:</p>
+                    <p class="text-center">
+                        <fa-icon style="color:yellow ;" [icon]="bolt"></fa-icon>
+                        {{datosCliente.focoConector[2].voltsAcumulados}}
+                    </p>
+                    <div class="row mb-3">
+                        <!-- <label class="col-sm-3 col-form-label">off/on foco</label> -->
+                        <div class="col-sm-9">
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input" type="checkbox" formControlName="switchCuartoCuatro">
+                                <!-- cuando esta en ture el switch resalta este template condiciones-->
+                                <label style="font-size: 15px;"
+                                    *ngIf="!formularioConsumoCuartoCuatro.value.switchCuartoCuatro"
+                                    class="form-check-label text-danger" for="switchConector">Se desconectará de la
+                                    corriente electrica y se apagará el foco al momento de guardar
+                                </label>
+                                <label style="font-size: 15px;" *ngIf="formularioConsumoCuartoCuatro.value.switchCuartoCuatro"
+                                    class="form-check-label text-success" for="switchConector">Se conectará a la
+                                    corriente
+                                    electrica y se encendera el foco al momento de guardar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- Boton submit -->
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary float-end">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

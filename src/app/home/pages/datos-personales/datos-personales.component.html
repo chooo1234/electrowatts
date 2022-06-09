@@ -1,0 +1,16 @@
+<div class="card">
+    <b class="card-title text-center">Datos personales</b>
+    <div class="row p-4">
+        <div class="col-sm-12  p-2">
+            <ul>
+                <li><span style="color: brown;">Nombre:</span> {{datosCliente.nombre}}</li>
+                <li><span style="color: brown;">Apellidos: </span>{{datosCliente.apellidos}}</li>
+                <li><span style="color: brown;">Telefono:</span> {{datosCliente.telefono}}</li>
+                <li><span style="color: brown;">Direccion de domicilio:</span> {{datosCliente.direccion}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-12 text-center">
+            <button class="btn btn-primary" (click)="passwordUpdate()">Cambiar de constraseña</button>
+        </div>     
+    </div>
+</div>

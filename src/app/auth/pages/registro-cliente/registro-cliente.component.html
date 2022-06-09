@@ -1,0 +1,86 @@
+<form (ngSubmit)="guardarCliente()" [formGroup]="fRegistrarCliente">
+    <div class="card mt-5" style="margin-left: auto; margin-right: auto;">
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" autocomplete="off"
+                        formControlName="nombre">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('nombre')">
+                        Campo requerido
+                    </span>
+                </div>
+                <div class="form-group col-md-7">
+                    <label for="Apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" autocomplete="off"
+                        formControlName="apellidos">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('apellidos')">
+                        Campo requerido
+                    </span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Telefono">Telefono</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="Telefono" autocomplete="off"
+                        formControlName="telefono">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('telefono')">
+                        Campo requerido
+                    </span>
+                    <!-- validacion  de minlength 10-->
+                    <span class="form-text text-danger" *ngIf="minLengthTel('telefono')">
+                        Se necesita un minimo de 10 digitos
+                    </span>
+                    <!-- validacion de minlength 10 -->
+                    <span class="form-text text-danger" *ngIf="maxLengthTel('telefono')">
+                        Se necesita un máximo de 10 digitos
+                    </span>
+                </div>
+                <div class="form-group col-md-8 mb-3">
+                    <label for="Direccion de domicilio">Direccion de domicilio</label>
+                    <input type="email" class="form-control" id="Direccion de domicilio" aria-describedby="emailHelp"
+                        autocomplete="off" placeholder="Direccion de domicilio" formControlName="direccionDomicilio">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('direccionDomicilio')">
+                        Campo requerido
+                    </span>
+                </div>
+                <hr>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" autocomplete="off"
+                        formControlName="email">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('email')">
+                        Campo requerido
+                    </span>
+                    <!-- validadr email -->
+                    <span class="form-text text-danger" *ngIf="validarEmail('email')">
+                        Ingrese un email valido
+                    </span>
+                    <span class="form-text text-danger" *ngIf="emailExiste">
+                        El correo ingresado esta en uso
+                    </span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password"
+                        formControlName="password">
+                    <!-- validacion de campos vacios -->
+                    <span class="form-text text-danger" *ngIf="required('password')">
+                        Campo requerido
+                    </span>
+                    <!-- minlength delcampo -->
+                    <span class="form-text text-danger" *ngIf="minLength('password')">
+                        Se necesita un minimo de 8 caracteres
+                    </span>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary mt-3" (click)="guardarCliente()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

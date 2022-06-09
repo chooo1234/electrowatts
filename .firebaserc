@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "miaplicaciondelascosas": {
+      "hosting": {
+        "electroWatts": [
+          "miaplicaciondelascosas"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "miaplicaciondelascosas"
+  }
+}

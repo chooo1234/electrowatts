@@ -1,0 +1,75 @@
+<div class="container mb-5">
+    <a class="btn btn-primary ml-1 mt-2" data-bs-toggle="offcanvas" data-bs-target="#sidebar" role="button"
+        aria-controls="offcanvasExample">
+        <fa-icon [icon]="flechaDerecha"></fa-icon> Abrir menú
+    </a>
+    <a class="btn btn-primary ml-1 mt-2" role="button" routerLink="./datos-personales" style="float: right;">
+        {{emailCliente}}  
+    </a>
+</div>
+
+
+
+<!-- sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" data-bs-backdrop="false" id="sidebar"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header text-center">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            <ol>
+                <li>
+                    <a data-bs-dismiss="offcanvas" routerLink="./consumo-energia">
+                        <fa-icon style="color:yellow ;" [icon]="bolt"></fa-icon>
+                        <span class="spacer"></span>
+                        Consumo de energía
+                    </a>
+                </li>
+                <hr class="bg-warning">
+                <li>
+                    <a data-bs-dismiss="offcanvas" routerLink="./estadistica">
+                        <fa-icon style="color: green ;" [icon]="chartPie"></fa-icon>
+                        <span class="spacer"></span>
+                        Estadisticas
+                    </a>
+                </li>
+                <hr>
+                <li>
+                    <div>
+                        <a href="#datosPersonal" data-bs-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">
+                            <fa-icon style="color: orange ;" [icon]="usuario"></fa-icon>
+                            <span class="spacer"></span>
+                            {{emailCliente}}  
+                        </a>
+                        <ul class="collapse list-unstyled" id="datosPersonal">
+                            <li>
+                                <a data-bs-dismiss="offcanvas" (click)="onDatosPersonales()">
+                                    <fa-icon style="color: purple ;" [icon]="houseUser"></fa-icon>
+                                    <span class="spacer"></span>
+                                    Datos Personales
+                                </a>
+                            </li>
+                            <li>
+                                <a (click)="salirLogin();">
+                                    <fa-icon style="color: red ;" [icon]="salir"></fa-icon>
+                                    <span class="spacer"></span>
+                                    Cerrar Sesión
+                                </a>
+                            </li>
+                            <hr>
+                        </ul>
+                    </div>
+
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 p-5 ">
+    <router-outlet></router-outlet>
+</div>
